@@ -6,6 +6,10 @@
     "react-scripts": "0.9.5"
   },
   "dependencies": {
+    "gl-react": "^2.2.10",
+    "gl-react-dom": "^2.2.8",
+    "gl-react-image": "0.0.2",
+    "gl-react-imagefilters": "^0.1.5",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "semantic-ui-react": "^0.68.0"
