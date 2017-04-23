@@ -8,7 +8,7 @@ class FilterList extends Component {
     render(){
       return (
         <div style={{display:'inlineBlock'}}>
-          {this.props.img ? Object.keys(this.props.filter).map((key,i) => <span key={key} onClick={this.changeIndex.bind(this,key)} ><FilterBox img={this.props.img} filter={this.props.filter[key]}/></span>):null}
+          {this.props.img ? Object.keys(this.props.filter).map((key,i) => <span key={i} onClick={this.changeIndex.bind(this,key)} ><FilterBox name={key} img={this.props.img} filter={this.props.filter[key]}/></span>):null}
         </div>
   );
   }

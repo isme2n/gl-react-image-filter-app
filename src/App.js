@@ -94,18 +94,23 @@ class App extends Component {
     })
   }
 
+  exportFile(){
+
+  }
+
   render() {
     return (
       <div className="App">
         <div className="App-header">
             <Header as='h2' style={{color:'#fff'}}>GL React Image Filter</Header>
         </div>
-        <div>
+        <div id="bodyImage">
           <Surface width={window.innerWidth} height={window.innerHeight*3/5}>
             <ImageFilter sepia={filter[this.state.index].sepia} hue={filter[this.state.index].hue} blur={filter[this.state.index].blur} sharpen={filter[this.state.index].sharpen} negative={filter[this.state.index].negative} contrast={filter[this.state.index].contrast} saturation={filter[this.state.index].saturation} brightness={filter[this.state.index].brightness} temparature={filter[this.state.index].temparature}>
               <GLImage
+                id="aaa"
                 source={{
-                  uri: this.state.img ? this.state.img :"",
+                  uri: this.state.img ? this.state.img :"http://placehold.it/600x400&text=Input+Your+Image",
                   width: window.innerWidth,
                   height: window.innerWidth*3/5
                 }}
@@ -115,6 +120,7 @@ class App extends Component {
           </Surface>
           <br/>
           <input id="loadButton" onChange={this.imageLoad.bind(this)} type="file" accept="image/*"/>
+          <button onClick={this.exportFile.bind(this)}>export</button>
         </div>
         <div>
           {this.state.img?<FilterList changeIndex={this.changeIndex} filter={filter} img={this.state.img}/>:null}
