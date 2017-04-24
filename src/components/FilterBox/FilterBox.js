@@ -9,7 +9,7 @@ class FilterBox extends Component {
       return (
         <div style={{float:'left'}}>
         <span>{name}</span>
-        <Surface width={window.innerWidth/4} height={window.innerWidth/6}>
+        <Surface width={window.innerWidth/4-5} height={window.innerWidth/6}>
           <ImageFilter sepia={filter.sepia} hue={filter.hue} blur={filter.blur} sharpen={filter.sharpen} negative={filter.negative} contrast={filter.contrast} saturation={filter.saturation} brightness={filter.brightness} temparature={filter.temparature}>
             <GLImage
               source={{

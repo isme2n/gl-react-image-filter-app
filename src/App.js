@@ -10,6 +10,7 @@ import FilterList from './components/FilterList/FilterList';
 
 var filter = [
   {
+    name: 'origin',
     sepia : 0,
     hue : 0,
     blur: 0,
@@ -21,6 +22,7 @@ var filter = [
     temparature:6500
   },
   {
+    name:'sample1',
     sepia : 1,
     hue : 1,
     blur: 1,
@@ -32,6 +34,7 @@ var filter = [
     temparature:6500
   },
   {
+    name:'sample2',
     sepia : 0,
     hue : 0,
     blur: 0,
@@ -43,6 +46,7 @@ var filter = [
     temparature:6500
   },
   {
+    name:'sample3',
     sepia : 0,
     hue : 0,
     blur: 0,
@@ -95,8 +99,9 @@ class App extends Component {
   }
 
   exportFile(){
-
-  }
+    this.surface.captureFrame({
+      type: 'png'}).then((data) => { this.setState({uploaded:data})})
+    }
 
   render() {
     return (
@@ -105,7 +110,7 @@ class App extends Component {
             <Header as='h2' style={{color:'#fff'}}>GL React Image Filter</Header>
         </div>
         <div id="bodyImage">
-          <Surface width={window.innerWidth} height={window.innerHeight*3/5}>
+          <Surface ref={(ref) => { this.surface = ref; }} width={window.innerWidth} height={window.innerHeight*3/5}>
             <ImageFilter sepia={filter[this.state.index].sepia} hue={filter[this.state.index].hue} blur={filter[this.state.index].blur} sharpen={filter[this.state.index].sharpen} negative={filter[this.state.index].negative} contrast={filter[this.state.index].contrast} saturation={filter[this.state.index].saturation} brightness={filter[this.state.index].brightness} temparature={filter[this.state.index].temparature}>
               <GLImage
                 id="aaa"
@@ -120,10 +125,15 @@ class App extends Component {
           </Surface>
           <br/>
           <input id="loadButton" onChange={this.imageLoad.bind(this)} type="file" accept="image/*"/>
-          <button onClick={this.exportFile.bind(this)}>export</button>
+          <Button onClick={this.exportFile.bind(this)}>export</Button>
         </div>
         <div>
           {this.state.img?<FilterList changeIndex={this.changeIndex} filter={filter} img={this.state.img}/>:null}
+        </div>
+        <div>
+          {this.state.uploaded? <a href={this.state.uploaded} download="myFilter.png" target="_blank">
+          이미지 다운로드
+        </a> : null}
         </div>
       </div>
     );
