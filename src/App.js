@@ -23,15 +23,15 @@ var filter = [
   },
   {
     name:'sample1',
-    sepia : 1,
-    hue : 1,
-    blur: 1,
-    sharpen:0,
+    sepia : 0,
+    hue : 0.00379752802194977,
+    blur: 0,
+    sharpen:0.14914415229748545,
     negative:0,
     contrast:1,
-    saturation:1,
+    saturation:1.7986548115091614,
     brightness:1,
-    temparature:6500
+    temparature:8725
   },
   {
     name:'sample2',
@@ -69,12 +69,29 @@ class App extends Component {
     }
 
     this.changeIndex = this.changeIndex.bind(this);
+
   }
   imageLoad(e){
     if(e.target.files.length === 1){
       this.setState({
         img: null
       })
+      for(let i=5;i<10;i++){
+        filter[i] = {
+          name:'sample'+i,
+          sepia :0 ,
+          hue :Math.random(),
+          blur: 0,
+          sharpen:Math.random(),
+          negative:0,
+          contrast:1,
+          saturation:1+Math.random(),
+          brightness:1,
+          temparature:Math.floor((Math.random() * 10000) + 2000)
+        }
+      }
+      console.log(filter);
+      
       var file = e.target.files[0];
       var fileReader = new FileReader();
 
