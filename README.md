@@ -1,4 +1,4 @@
-# Create-react-app with Semantic UI
+# GL-React-Image-Filter-App
 
 ## stack
 - create-react-app
@@ -11,4 +11,6 @@ cd {dir-name}
 npm install
 npm start
 ```
+## sample
 
+![sample](./img/sample.png)

@@ -76,22 +76,22 @@ class App extends Component {
       this.setState({
         img: null
       })
-      for(let i=5;i<10;i++){
-        filter[i] = {
-          name:'sample'+i,
-          sepia :0 ,
-          hue :Math.random(),
-          blur: 0,
-          sharpen:Math.random(),
-          negative:0,
-          contrast:1,
-          saturation:1+Math.random(),
-          brightness:1,
-          temparature:Math.floor((Math.random() * 10000) + 2000)
-        }
-      }
-      console.log(filter);
-      
+      // for(let i=5;i<10;i++){
+      //   filter[i] = {
+      //     name:'sample'+i,
+      //     sepia :0 ,
+      //     hue :Math.random()/8,
+      //     blur: 0,
+      //     sharpen:Math.random()+1,
+      //     negative:0,
+      //     contrast:1,
+      //     saturation:1+Math.random(),
+      //     brightness:0.5+Math.random(),
+      //     temparature:Math.floor((Math.random() * 4000) + 8000)
+      //   }
+      // }
+      // console.log(filter);
+
       var file = e.target.files[0];
       var fileReader = new FileReader();
 
